@@ -1,0 +1,29 @@
+PROBLEM LINK : https://codeforces.com/problemset/problem/313/B
+
+#include <iostream>
+#include<cstring>
+using namespace std;
+int main() {
+    string s;
+    cin>>s;
+    int size=s.length();
+    int a[size];
+    a[0]=0;
+    for(int i=1;i<size;i++)
+    {
+        if(s[i]==s[i-1])
+        {
+            a[i]=a[i-1]+1;
+        }
+        else
+        a[i]=a[i-1];
+    }
+    int m;
+    cin>>m;
+    while(m--)
+    {
+        int l,r;
+        cin>>l>>r;
+        cout<<a[r-1]-a[l-1]<<endl;
+    }
+}
